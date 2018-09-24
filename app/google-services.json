@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "896222021770",
+    "firebase_url": "https://relawable-782c8.firebaseio.com",
+    "project_id": "relawable-782c8",
+    "storage_bucket": "relawable-782c8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:896222021770:android:780b3ba205de4057",
+        "android_client_info": {
+          "package_name": "com.dtechterminal.relawable"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "896222021770-fckd2apevq4313o6tq991o4vnfjtfc3p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dtechterminal.relawable",
+            "certificate_hash": "3d18750c642cb7ad8996301316397d352c8a6172"
+          }
+        },
+        {
+          "client_id": "896222021770-ikptgiebg09j5lnq6ojjuv0laf9v7ela.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1_H5OzfC9RvDYwAbLoM3HMR5Gje4g9-0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "896222021770-ikptgiebg09j5lnq6ojjuv0laf9v7ela.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
