@@ -8,7 +8,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LawyerHome extends AppCompatActivity {
-    TextView textName, textEmail,flag;
+    TextView textName;
     FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,9 +16,8 @@ public class LawyerHome extends AppCompatActivity {
         setContentView(R.layout.lawyer_home);
         mAuth = FirebaseAuth.getInstance();
         textName = findViewById(R.id.textView);
-        textEmail = findViewById(R.id.textView2);
         FirebaseUser user = mAuth.getCurrentUser();
-        textName.setText(user.getDisplayName());
-        textEmail.setText(user.getEmail());
+        String usernm=user.getDisplayName();
+        textName.setText("Welcome ,"+usernm);
     }
 }

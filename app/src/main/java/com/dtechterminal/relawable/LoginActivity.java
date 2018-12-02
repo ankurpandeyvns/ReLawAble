@@ -72,16 +72,16 @@ public class LoginActivity extends AppCompatActivity {
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                     try {
                                         int flag = dataSnapshot.child("CORLAW").getValue(Integer.class);
-                                        startActivity(new Intent(getBaseContext(),SignUp.class));
+                                        if(flag == 1) startActivity(new Intent(getBaseContext(),LawyerHome.class));
+                                        else startActivity(new Intent(getBaseContext(),ClientHome.class));
                                     }
                                     catch(java.lang.NullPointerException e){
-                                        myRef.child("CORLAW").setValue(1);
-                                        startActivity(new Intent(getBaseContext(), LawyerHome.class));
+                                        startActivity(new Intent(getBaseContext(), SignUp.class));
                                     }
                                 }
                                 @Override
                                 public void onCancelled(@NonNull DatabaseError databaseError) {
-                                    Log.d(TAG,"hi");
+                                    Log.d(TAG,"Authentication Error");
                                 }
                             });
                             //myRef.setValue(1);
