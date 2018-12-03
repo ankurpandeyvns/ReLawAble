@@ -4,11 +4,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ClientHome extends AppCompatActivity {
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    FirebaseAuth mauth;
     RecyclerView recyclerView;
     RecyclerView.Adapter mAdapter;
     RecyclerView.LayoutManager layoutManager;
@@ -20,6 +28,11 @@ public class ClientHome extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_home);
+        mauth = FirebaseAuth.getInstance();
+        FirebaseUser user = mauth.getCurrentUser();
+        DatabaseReference myRef = database.getReference(user.getUid());
+        TextView tv = findViewById(R.id.textView3);
+        tv.setText("Welcome, "+user.getDisplayName());
         recyclerView = findViewById(R.id.recycleViewContainer);
         recyclerView.setHasFixedSize(true);
 

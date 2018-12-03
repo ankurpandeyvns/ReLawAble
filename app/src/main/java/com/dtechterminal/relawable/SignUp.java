@@ -20,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class SignUp extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     FirebaseAuth mauth;
-    EditText nm,loc;
+    EditText nm,loc,pn;
     private Button btnChoose, btnUpload;
     private ImageView imageView;
     private Uri filePath;
@@ -31,7 +31,6 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
         mauth = FirebaseAuth.getInstance();
         FirebaseUser user = mauth.getCurrentUser();
-        DatabaseReference myRef = database.getReference(user.getUid());
         nm = findViewById(R.id.NAME);
         if(!(user.getDisplayName()==null)) nm.setText(user.getDisplayName());
     }
@@ -43,24 +42,25 @@ public class SignUp extends AppCompatActivity {
         DatabaseReference myRef = database.getReference(user.getUid());
         nm = findViewById(R.id.NAME);
         loc = findViewById(R.id.Locality);
-        EditText pn = findViewById(R.id.Phone);
-        if(pn.getText().toString().isEmpty() || nm.getText().toString().isEmpty() || loc.getText().toString().isEmpty())
+        pn = findViewById(R.id.Phone);
+        if(pn.getText().toString().isEmpty() || nm.getText().toString().isEmpty() || loc.getText().toString().isEmpty() || pn.getText().toString().length()!=10)
             Toast.makeText(this, "Fill up the form completely before proceeding.", Toast.LENGTH_SHORT).show();
         else {
             myRef.child("Name").setValue(nm.getText().toString());
             myRef.child("Locality").setValue(loc.getText().toString());
             myRef.child("Phone").setValue(Long.parseLong(pn.getText().toString()));
+            if (selectedid == 2131296368) {
+                DatabaseReference Lawyers = database.getReference("Lawyers");
+                Lawyers.setValue(user.getUid());
+                myRef.child("CORLAW").setValue(1);
+                startActivity(new Intent(getBaseContext(), LawyerHome.class));
+            } else {
+                DatabaseReference Clients = database.getReference("Clients");
+                Clients.setValue(user.getUid());
+                myRef.child("CORLAW").setValue(0);
+                startActivity(new Intent(getBaseContext(), ClientHome.class));
+            }
         }
-        if(selectedid == 2131296368){
-            DatabaseReference Lawyers = database.getReference("Lawyers");
-            Lawyers.setValue(user.getUid());
-            myRef.child("CORLAW").setValue("1");
-            startActivity(new Intent(getBaseContext(),LawyerHome.class));}
-        else{
-            DatabaseReference Clients = database.getReference("Clients");
-            Clients.setValue(user.getUid());
-            myRef.child("CORLAW").setValue("0");
-            startActivity(new Intent(getBaseContext(),ClientHome.class)); }
     }
     private void chooseImage() {
         Intent intent = new Intent();
