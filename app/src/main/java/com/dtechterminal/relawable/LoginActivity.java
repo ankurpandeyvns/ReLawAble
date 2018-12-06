@@ -84,7 +84,6 @@ public class LoginActivity extends AppCompatActivity {
                                     Log.d(TAG,"Authentication Error");
                                 }
                             });
-                            //myRef.setValue(1);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());

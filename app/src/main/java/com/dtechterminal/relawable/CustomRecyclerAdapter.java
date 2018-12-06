@@ -1,9 +1,12 @@
 package com.dtechterminal.relawable;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,7 +38,8 @@ public class CustomRecyclerAdapter extends RecyclerView.Adapter<CustomRecyclerAd
 
         holder.pName.setText(pu.getPersonName());
         holder.pJobProfile.setText(pu.getJobProfile());
-
+        holder.pImage.setImageDrawable(pu.getProfileImage());
+        holder.ratingBar.setRating(pu.getRating());
     }
 
     @Override
@@ -47,12 +51,16 @@ public class CustomRecyclerAdapter extends RecyclerView.Adapter<CustomRecyclerAd
 
         public TextView pName;
         public TextView pJobProfile;
+        public ImageView pImage;
+        public RatingBar ratingBar;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             pName = itemView.findViewById(R.id.pNametxt);
             pJobProfile =  itemView.findViewById(R.id.pJobProfiletxt);
+            pImage = itemView.findViewById(R.id.userImg);
+            ratingBar = itemView.findViewById(R.id.ratingBar);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

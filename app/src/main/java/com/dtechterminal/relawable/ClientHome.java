@@ -20,9 +20,7 @@ public class ClientHome extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.Adapter mAdapter;
     RecyclerView.LayoutManager layoutManager;
-
     List<PersonUtils> personUtilsList;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,27 +33,21 @@ public class ClientHome extends AppCompatActivity {
         tv.setText("Welcome, "+user.getDisplayName());
         recyclerView = findViewById(R.id.recycleViewContainer);
         recyclerView.setHasFixedSize(true);
-
         layoutManager = new LinearLayoutManager(this);
-
         recyclerView.setLayoutManager(layoutManager);
-
         personUtilsList = new ArrayList<>();
-
         //Adding Data into ArrayList
-        personUtilsList.add(new PersonUtils("Todd Miller","Project Manager"));
-        personUtilsList.add(new PersonUtils("Bradley Matthews","Senior Developer"));
-        personUtilsList.add(new PersonUtils("Harley Gibson","Lead Developer"));
-        personUtilsList.add(new PersonUtils("Gary Thompson","Lead Developer"));
-        personUtilsList.add(new PersonUtils("Corey Williamson","UI/UX Developer"));
-        personUtilsList.add(new PersonUtils("Samuel Jones","Front-End Developer"));
-        personUtilsList.add(new PersonUtils("Michael Read","Backend Developer"));
-        personUtilsList.add(new PersonUtils("Robert Phillips","Android Developer"));
-        personUtilsList.add(new PersonUtils("Albert Stewart","Web Developer"));
-        personUtilsList.add(new PersonUtils("Wayne Diaz","Junior Developer"));
-
+        personUtilsList.add(new PersonUtils("Rakesh Kumar Sharma","Personal Injury-Defense, Real Estate",getApplicationContext().getResources().getDrawable(R.drawable.prof),4.5f));
+        personUtilsList.add(new PersonUtils("Nikhil Arya","Contract, Creditors Rights, Criminal",getApplicationContext().getResources().getDrawable(R.drawable.logo),3f));
+        personUtilsList.add(new PersonUtils("Sangita Bhayana","Civil Rights, Divorce, Domestic Relations",getApplicationContext().getResources().getDrawable(R.drawable.logo),3.5f));
+        personUtilsList.add(new PersonUtils("Rajesh Kumar","Family Law, Indian Law, Insurance",getApplicationContext().getResources().getDrawable(R.drawable.logo),4f));
+        personUtilsList.add(new PersonUtils("Vivek Singh","Child Custody and Succession",getApplicationContext().getResources().getDrawable(R.drawable.logo),3.5f));
+        personUtilsList.add(new PersonUtils("Rakesh K.Sharma","Divorce/Domestic Relations, Education",getApplicationContext().getResources().getDrawable(R.drawable.logo),4f));
+        personUtilsList.add(new PersonUtils("Satyapaul","Employment, Entertainment, Environmental",getApplicationContext().getResources().getDrawable(R.drawable.logo),5f));
+        personUtilsList.add(new PersonUtils("Vivek Singh","Employment, Family Law, General Practice",getApplicationContext().getResources().getDrawable(R.drawable.logo),3f));
+        personUtilsList.add(new PersonUtils("Sandhya Gupta","Construction, Consumer Law, Contract",getApplicationContext().getResources().getDrawable(R.drawable.logo),3f));
+        personUtilsList.add(new PersonUtils("Suresh Chand"," Health Care Law, Indian Law, Insurance",getApplicationContext().getResources().getDrawable(R.drawable.logo),2f));
         mAdapter = new CustomRecyclerAdapter(this, personUtilsList);
-
         recyclerView.setAdapter(mAdapter);
     }
 }
