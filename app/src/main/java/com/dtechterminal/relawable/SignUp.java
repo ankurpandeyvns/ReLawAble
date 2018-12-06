@@ -51,12 +51,12 @@ public class SignUp extends AppCompatActivity {
             myRef.child("Phone").setValue(Long.parseLong(pn.getText().toString()));
             if (selectedid == 2131296368) {
                 DatabaseReference Lawyers = database.getReference("Lawyers");
-                Lawyers.setValue(user.getUid());
+                Lawyers.child(user.getUid()).setValue("0");
                 myRef.child("CORLAW").setValue(1);
                 startActivity(new Intent(getBaseContext(), LawyerHome.class));
             } else {
                 DatabaseReference Clients = database.getReference("Clients");
-                Clients.setValue(user.getUid());
+                Clients.child(user.getUid()).setValue("0");
                 myRef.child("CORLAW").setValue(0);
                 startActivity(new Intent(getBaseContext(), ClientHome.class));
             }

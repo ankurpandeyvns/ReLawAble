@@ -56,7 +56,9 @@ public class LoginActivity extends AppCompatActivity {
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
-        final String uid = user.getUid();
+        final String uid;
+        if(user!=null) uid = user.getUid();
+        else uid="3BCwCNChl6NH0ktubdZpyZyQQZw1";
         final DatabaseReference myRef = database.getReference(uid);
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)

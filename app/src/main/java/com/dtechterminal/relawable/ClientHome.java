@@ -38,15 +38,15 @@ public class ClientHome extends AppCompatActivity {
         personUtilsList = new ArrayList<>();
         //Adding Data into ArrayList
         personUtilsList.add(new PersonUtils("Rakesh Kumar Sharma","Personal Injury-Defense, Real Estate",getApplicationContext().getResources().getDrawable(R.drawable.prof),4.5f));
-        personUtilsList.add(new PersonUtils("Nikhil Arya","Contract, Creditors Rights, Criminal",getApplicationContext().getResources().getDrawable(R.drawable.logo),3f));
-        personUtilsList.add(new PersonUtils("Sangita Bhayana","Civil Rights, Divorce, Domestic Relations",getApplicationContext().getResources().getDrawable(R.drawable.logo),3.5f));
-        personUtilsList.add(new PersonUtils("Rajesh Kumar","Family Law, Indian Law, Insurance",getApplicationContext().getResources().getDrawable(R.drawable.logo),4f));
-        personUtilsList.add(new PersonUtils("Vivek Singh","Child Custody and Succession",getApplicationContext().getResources().getDrawable(R.drawable.logo),3.5f));
-        personUtilsList.add(new PersonUtils("Rakesh K.Sharma","Divorce/Domestic Relations, Education",getApplicationContext().getResources().getDrawable(R.drawable.logo),4f));
-        personUtilsList.add(new PersonUtils("Satyapaul","Employment, Entertainment, Environmental",getApplicationContext().getResources().getDrawable(R.drawable.logo),5f));
-        personUtilsList.add(new PersonUtils("Vivek Singh","Employment, Family Law, General Practice",getApplicationContext().getResources().getDrawable(R.drawable.logo),3f));
-        personUtilsList.add(new PersonUtils("Sandhya Gupta","Construction, Consumer Law, Contract",getApplicationContext().getResources().getDrawable(R.drawable.logo),3f));
-        personUtilsList.add(new PersonUtils("Suresh Chand"," Health Care Law, Indian Law, Insurance",getApplicationContext().getResources().getDrawable(R.drawable.logo),2f));
+        personUtilsList.add(new PersonUtils("Nikhil Arya","Contract, Creditors Rights, Criminal",getApplicationContext().getResources().getDrawable(R.drawable.prof),3f));
+        personUtilsList.add(new PersonUtils("Sangita Bhayana","Civil Rights, Divorce, Domestic Relations",getApplicationContext().getResources().getDrawable(R.drawable.prof),3.5f));
+        personUtilsList.add(new PersonUtils("Rajesh Kumar","Family Law, Indian Law, Insurance",getApplicationContext().getResources().getDrawable(R.drawable.prof),4f));
+        personUtilsList.add(new PersonUtils("Vivek Singh","Child Custody and Succession",getApplicationContext().getResources().getDrawable(R.drawable.prof),3.5f));
+        personUtilsList.add(new PersonUtils("Rakesh K.Sharma","Divorce/Domestic Relations, Education",getApplicationContext().getResources().getDrawable(R.drawable.prof),4f));
+        personUtilsList.add(new PersonUtils("Satyapaul","Employment, Entertainment, Environmental",getApplicationContext().getResources().getDrawable(R.drawable.prof),5f));
+        personUtilsList.add(new PersonUtils("Vivek Singh","Employment, Family Law, General Practice",getApplicationContext().getResources().getDrawable(R.drawable.prof),3f));
+        personUtilsList.add(new PersonUtils("Sandhya Gupta","Construction, Consumer Law, Contract",getApplicationContext().getResources().getDrawable(R.drawable.prof),3f));
+        personUtilsList.add(new PersonUtils("Suresh Chand"," Health Care Law, Indian Law, Insurance",getApplicationContext().getResources().getDrawable(R.drawable.prof),2f));
         mAdapter = new CustomRecyclerAdapter(this, personUtilsList);
         recyclerView.setAdapter(mAdapter);
     }

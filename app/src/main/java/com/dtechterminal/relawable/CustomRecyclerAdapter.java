@@ -1,6 +1,8 @@
 package com.dtechterminal.relawable;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,11 +67,15 @@ public class CustomRecyclerAdapter extends RecyclerView.Adapter<CustomRecyclerAd
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
                     PersonUtils cpu = (PersonUtils) view.getTag();
-
+                    Bundle nb = new Bundle();
+                    nb.putString("Name",cpu.getPersonName());
+                    nb.putString("Spec",cpu.getJobProfile());
+                    nb.putFloat("Rating",cpu.getRating());
+                    Intent LD = new Intent(context,LawyerDashboard.class);
+                    LD.putExtras(nb);
                     Toast.makeText(view.getContext(), cpu.getPersonName()+" is "+ cpu.getJobProfile(), Toast.LENGTH_SHORT).show();
-
+                    context.startActivity(LD);
                 }
             });
 
