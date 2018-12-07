@@ -74,7 +74,6 @@ public class CustomRecyclerAdapter extends RecyclerView.Adapter<CustomRecyclerAd
                     nb.putFloat("Rating",cpu.getRating());
                     Intent LD = new Intent(context,LawyerDashboard.class);
                     LD.putExtras(nb);
-                    Toast.makeText(view.getContext(), cpu.getPersonName()+" is "+ cpu.getJobProfile(), Toast.LENGTH_SHORT).show();
                     context.startActivity(LD);
                 }
             });

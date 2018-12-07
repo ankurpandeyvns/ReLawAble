@@ -49,16 +49,18 @@ public class SignUp extends AppCompatActivity {
             myRef.child("Name").setValue(nm.getText().toString());
             myRef.child("Locality").setValue(loc.getText().toString());
             myRef.child("Phone").setValue(Long.parseLong(pn.getText().toString()));
-            if (selectedid == 2131296368) {
-                DatabaseReference Lawyers = database.getReference("Lawyers");
-                Lawyers.child(user.getUid()).setValue("0");
-                myRef.child("CORLAW").setValue(1);
-                startActivity(new Intent(getBaseContext(), LawyerHome.class));
-            } else {
+            Log.d(Integer.toString(selectedid),"IDANK");
+            if (selectedid == 2131296373) {
                 DatabaseReference Clients = database.getReference("Clients");
-                Clients.child(user.getUid()).setValue("0");
+                Clients.child(user.getUid()).setValue(0);
                 myRef.child("CORLAW").setValue(0);
                 startActivity(new Intent(getBaseContext(), ClientHome.class));
+
+            } else {
+                DatabaseReference Lawyers = database.getReference("Lawyers");
+                Lawyers.child(user.getUid()).setValue(0);
+                myRef.child("CORLAW").setValue(1);
+                startActivity(new Intent(getBaseContext(), LawyerHome.class));
             }
         }
     }
